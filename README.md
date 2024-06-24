@@ -20,32 +20,33 @@ firewall-cmd --permanent --add-service=http
 
 2) Configuring dhcp
 
-Copy the file from the repository /src/etc/dhcp/dhcpd.conf to /etc/dhcp/dhcp.conf
+* Copy the file from the repository /src/etc/dhcp/dhcpd.conf to /etc/dhcp/dhcp.conf
 
 3) Configuring tftp.
 
-Copy the file from the repository /src/etc/xinetd.d/tftp to /etc/xinetd.d/tftp
+* Copy the file from the repository /src/etc/xinetd.d/tftp to /etc/xinetd.d/tftp
 
 4) Setting up boot files:: 
 
-Copy the file from the repository /src/var/lid/tfpboot to /var/lid/tfpboot
+* Copy the file from the repository /src/var/lib/tfpboot to /var/lib/tfpboot
 
 5) Copy installation files from ISO.
 ```
 # For Oracle Linux 8
 mount -o loop /dev/cdrom /mnt
-rsync -av /mnt/. /var/lid/tfpboot/images/ol8/
+rsync -av /mnt/. /var/lib/tfpboot/images/ol8/
 umount /mnt
 
 # For Oracle Linux 9
 mount -o loop /dev/cdrom /mnt
-rsync -av /mnt/. /var/lid/tfpboot/images/ol9/
+rsync -av /mnt/. /var/lib/tfpboot/images/ol9/
 umount /mnt
 ```
 
 6) Configuring kickstart for PXE:
-Copy the file from the repository /src/var/lid/tfpboot/ol8/ks.cfg to /var/lid/tfpboot/ol8/ks.cfg
-Copy the file from the repository /src/var/lid/tfpboot/ol9/ks.cfg to /var/lid/tfpboot/ol9/ks.cfg
+   
+* Copy the file from the repository /src/var/lib/tfpboot/ol8/ks.cfg to /var/lib/tfpboot/ol8/ks.cfg
+* Copy the file from the repository /src/var/lib/tfpboot/ol9/ks.cfg to /var/lib/tfpboot/ol9/ks.cfg
 
 7) Making a symbolic link for nginx:
 
