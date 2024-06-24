@@ -1,0 +1,16 @@
+DEFAULT menu.c32
+PROMPT 0
+TIMEOUT 100
+ONTIMEOUT install
+
+MENU TITLE PXE Boot Menu
+
+LABEL install_ol8
+    MENU LABEL Install Oracle Linux 8
+    KERNEL images/ol8/isolinux/vmlinuz
+    APPEND initrd=images/ol8/isolinux/initrd.img inst.stage2=http://10.1.1.1/images/ol8 inst.ks=http://10.1.1.1/images/ol8/ks.cfg inst.repo=http://10.1.1.1/images/ol8/
+
+LABEL install_ol9
+    MENU LABEL Install Oracle Linux 9
+    KERNEL images/ol9/isolinux/vmlinuz
+    APPEND initrd=images/ol9/isolinux/initrd.img inst.stage2=http://10.1.1.1/images/ol9 inst.ks=http://10.1.1.1/images/ol8/ks.cfg inst.repo=http://10.1.1.1/images/ol9/
